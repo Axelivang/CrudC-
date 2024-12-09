@@ -1,0 +1,30 @@
+﻿@using IntroAsp.Views.ViewModels
+@model BeerViewModel
+
+<h1 class="text-center mb-4">Editar Cerveza</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+        <form asp-action="Edit" asp-route-id="@Model.BeerId" method="post">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label mb-2">Nombre de la cerveza</label>
+                <input asp-for="Name" class="form-control" placeholder="Nombre de la cerveza" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="BrandId" class="control-label mb-2">Marca</label>
+                <select asp-for="BrandId" class="form-control" asp-items="ViewBag.Brands">
+                    <option value="">Seleccionar marca</option>
+                </select>
+                <span asp-validation-for="BrandId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-lg w-100">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
